@@ -1,0 +1,97 @@
+
+
+postgress password -> iiita123
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+//Proxy for flutter
+
+
+$Env:NO_PROXY="127.0.0.1,localhost,::1"
+$Env:https_proxy="https://IIT2023263:2005-03-11@172.31.2.4:8080" 
+$Env:http_proxy="http://IIT2023263:2005-03-11@172.31.2.4:8080"
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+// Proxy for git
+
+
+git config --global http.proxy http://IIT2023263:2005-03-11@172.31.2.4:8080
+git config --global https.proxy https://IIT2023263:2005-03-11@172.31.2.4:8080
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+// how to host flutter web
+
+
+1) run command flutter build web
+2) go to \build\web folder
+3) initialize the repo
+4) use GitHub Pages to host the frontend and firebase or node for backend
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+// how to publish dart package
+
+flutter create --template=package packagename
+
+create a src folder in lib with a file packagename.dart write your code in it
+remove boilerplate code from the pre-generated file and write export 'src/packagename.dart'
+
+//be ready to publish
+
+check name description and version 
+create a GitHub repo and put its link in homepage
+in CHANGELOG.md write all the things that your package does
+in README.md include code spinit and revelant images
+
+
+//publish using commands
+dart pub publish --dry-run if it says 0 warnings then proceed 
+dart pub publish
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+// how to disable code shrinking while building apk 
+
+add minifyEnabled false
+    shrinkResources false
+in release of app level build.gradle
+
+
+
+---------------------------------------------------------------------------------------------------------------------- 
+
+
+// creating rest api in ts and node
+
+npm init -y
+npm install -D ts-node
+npm install -D typescript
+npm install -D nodemon
+
+init tsc
+
+configure nodemon
+//sample nodemon file
+	{
+      		"watch": ["src"],
+      		"ext": ".ts,.js",
+      		"exec": "ts-node ./src/index.ts"
+	}
+
+// for dependencies you install install their types
+npm install -D @types/express
+
+

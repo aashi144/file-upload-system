@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Container, Typography } from '@mui/material';
+import FileUpload from './components/FileUpload';
+import FileList from './components/FileList';
 
 function App() {
+  const [fileListUpdated, setFileListUpdated] = useState(false);
+
+  const handleFileUpload = () => {
+    setFileListUpdated((prev) => !prev); // Toggle to re-render the FileList
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="sm">
+      <Typography variant="h4" align="center" gutterBottom>
+        File Upload System
+      </Typography>
+      <FileUpload onUpload={handleFileUpload} />
+      <FileList key={fileListUpdated} /> {/* Key to force re-render on upload */}
+    </Container>
   );
 }
 
